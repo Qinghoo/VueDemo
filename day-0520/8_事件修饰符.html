@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="app">
+            <!--阻止默认行为-->
+            <a href="http://www.baidu.com" @click.prevent="run">阻止冒泡百度</a> 
+            <div @click="say(str)">
+                <div @click.stop="run">阻止冒泡</div>
+            </div>
+            <form action="XX.jsp" method="post">
+                <input type="text" @keyup.enter="submit">
+            </form>
+
+
+
+            </div>
+        
+            <script src="vue.min.js"></script>
+            <script>
+                new Vue({
+                    el:'#app',
+                    data: {
+                        str:'传值'
+                    },
+                    methods: {
+                        say(x){
+                            alert('我说'+x);
+                        },
+                        run(){
+                            alert('特能跑')
+                        }
+                    },
+                })
+            </script>  
+</body>
+</html>

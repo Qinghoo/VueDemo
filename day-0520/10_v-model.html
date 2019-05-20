@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <!--单行文本框-->
+        <input type="text" v-model="str">{{str}}<br>
+        <!--单选框-->
+        <input type="radio" v-model="sex" value="男">男{{sex}}<br>
+        <input type="radio" v-model="sex" value="女">女{{女}}<br>
+        <!--多选框-->
+        <input type="checkbox" v-model="tag" value="爬山">爬山<br>
+        <input type="checkbox" v-model="tag" value="唱跳">唱跳<br>
+        <input type="checkbox" v-model="tag" value="rap">rap<br>
+        {{tag}}
+
+
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                str:'hello',
+                sex:'男',
+                bool:true,
+                tag:[]
+            }
+        })
+    </script>
+</body>
+</html>

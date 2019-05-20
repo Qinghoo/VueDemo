@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        千米：<input type="text" v-model="Km">
+        米：<input type="text" v-model="M">
+
+    </div>
+    <p id="info"></p>
+    <script src="vue.min.js"></script>
+    <script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            Km:0,
+            M:0
+        },methods: {
+            
+        },
+        watch: {
+            Km:function(Val){
+                this.Km=Val;
+                this.M=this.Km*1000;
+            },
+            M:function(Val){
+                this.M=Val;
+                this.Km=this.M/1000;
+            }
+        },
+        computed: {
+            
+        },
+        
+    })
+    vm.$watch('Km',function(newValue,oldValue){
+        document.querySelector("#info").innerHTML="修改前你的值为："+oldValue+",修改后的值为："+newValue;
+    })
+    </script>
+</body>
+</html>

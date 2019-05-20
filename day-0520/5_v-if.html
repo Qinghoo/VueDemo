@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--单分支-->    
+         <div v-if="str=='ok'">this is Ok! </div> 
+        <!--双分支-->
+        <div v-if="Math.random()>0.5">我过半了</div>
+        <div v-else>我是小于0.5</div>
+        <!-- 多分支 -->
+        <div v-if="type=='A'">我是A</div>
+        <div v-else-if="type=='B'">我是B</div>
+        <div v-else-if="type=='C'">我是C</div>
+        <div v-else-if="type=='D'">我是D</div>
+        <div v-else>都不是</div> 
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+    new Vue({
+        el:'#app',
+        data:{
+            str:'ok',
+            type:'C'
+        }
+    })
+    </script>
+</body>
+</html>

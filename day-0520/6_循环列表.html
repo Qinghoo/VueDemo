@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,key) in arr">{{key}}--{{item}}</li>
+        </ul>
+        <ul>
+            <li v-for="(item,key,index) in obj">{{key}}--{{item}}--{{index}}</li>
+        </ul>
+        <ul>
+            <li v-for="item in info">{{item.age}}--{{item.name}}</li>
+        </ul>
+
+    </div>
+    <script src="vue.min.js"> </script>
+    <script>
+    new Vue({
+        el:'#app',
+        data:{
+            arr:[1,1,2,33,2,5],
+            obj:{
+                name:'jack',
+                age:19,
+                addr:'ts'
+            },
+            info:[
+                {name:'ton',age:23,sex:'女'},
+                {name:'jack',age:23,sex:'女'},
+                {name:'king',age:25,sex:'男'}
+            ]
+
+        }
+    }) 
+    </script>
+</body>
+</html>

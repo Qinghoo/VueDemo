@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-on:click="count++">加1</p>
+        {{count}}
+        <p @click="count--"> 减1</p>
+        <p @click="say(str)">我说</p>
+        <p @click="run">跑 </p>
+    </div>
+
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                count:0,
+                str:"这是我传递的内容"
+            },
+            methods: {
+                say(x){
+                    alert('我说'+x);
+                },
+                run(){
+                    alert('特能跑')
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -2,28 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
     <title>Document</title>
-
-
 </head>
 <body>
+    <!--v-html可以解析标记，而v-text 不可以解析标记-->
     <script src="vue.min.js"></script>
     <div id="app">
         {{str}}
-        <div v-html="html"></div>
+        <div v-html="str"></div>
+        <div v-text="str"></div>
     </div>
     <script>
         new Vue({
-            el:"#app",
+            el:'#app',
             data:{
-                str:'Hello,world',
-                html:'<h1>我是div内容</h1>'
+                str:'<h2>我是H2内容</h2>'
             }
         })
     </script>
-    
 </body>
 </html>

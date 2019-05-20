@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="app">
+               <input type="text" v-model="str">{{str}}
+               <button @click="counter++">加1</button>{{counter}}
+            </div>
+            <script src="vue.min.js"></script>
+            <script >
+            new Vue({
+                el:'#app',
+                data:{
+                    str:'haha',
+                    counter:1
+                },
+                watch: {
+                    str(newVal,oldVal){
+                        console.log(newVal,oldVal);
+                        if(this.str=='ok'){
+                            this.str='我监听你';
+                        }
+                    },
+                    counter(newVal,oldVal){
+                        console.log(newVal,oldVal);
+                    }
+                }
+            })
+            </script> 
+</body>
+</html>

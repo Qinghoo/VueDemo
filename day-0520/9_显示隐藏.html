@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>显示与隐藏</title>
+    <style>
+    .box{
+        width: 200px;
+        height: 200px;
+        background: burlywood;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="show">显示/隐藏</button>
+        <div class="box" v-if="bool"></div>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                bool:true
+            },
+            methods: {
+              show(){
+                this.bool=!this.bool;
+                 /*  if(this.bool==true){
+                      this.bool=false;
+                  }else{
+                      this.bool=true;
+                  } */
+              }  
+            },
+        })
+    </script>
+</body>
+</html>
