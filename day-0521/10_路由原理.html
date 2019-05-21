@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#/login">登录</a>
+    <a href="#/reg">注册</a>
+    <div id="box"></div>
+    <script>
+    var box=document.querySelector('#box');
+    window.onhashchange=function(){
+        if(location.hash=='#/login'){
+        box.innerHTML='我是登录页面';
+        }else if(location.hash='#/reg'){
+            box.innerHTML='我是注册页面'
+        }
+    }
+    </script>
+</body>
+</html>

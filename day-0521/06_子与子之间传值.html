@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <son1 ></son1>
+           
+            <son2></son2>
+          
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        var bus=new Vue({})
+        var son1={
+            data() {
+                return {
+                    str:'happy'
+                }
+            },
+            methods: {
+                run(){
+                    bus.$emit('end',this.str);
+                }
+            },
+            template:'<div @click="run">我是子组件1{{str}}</div>'
+        }
+        var son2={
+            data(){
+                return{
+                    msg:'good'
+                }
+            },
+            template:'<div>我是子组件2{{msg}}</div>',
+            created() {
+
+                bus.$on('end',x=>{
+                    this.msg=x;
+                })
+            }
+        }
+        new Vue({
+            el:'#app',
+            components:{
+                son1,
+                son2
+            }
+        })
+    </script>
+</body>
+
+</html>

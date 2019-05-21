@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Document</title>
+    <style>
+        html,body,.box{
+            width: 100%;
+            height: 100%;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        .wrapper{
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        .title{
+            width: 120px;
+        }
+        .title li{
+            line-height: 30px;
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+        }
+        .title li.active{
+            background: cadetblue;
+            border-right: 0;
+            color: rgb(167, 77, 17);
+        }
+        .con{
+            background: rgb(139, 127, 127);
+            flex: 1
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <ul class="title">
+                <li v-for="item in titles" :class="{active:item.id==curId}" @click="switchTab(item.id)">{{item.title}}</li>
+            </ul>
+            <div id="con">
+                {{content}}
+            </div>
+        </div>    
+
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                curId:0,
+                content:'小米内容',
+                titles:[
+                    {
+                        id:0,
+                        title:'小米'
+                    },
+                    {
+                        id:1,
+                        title:'华为'
+                    },
+                    {
+                        id:2,
+                        title:'诺基亚'
+                    },
+                    {
+                        id:3,
+                        title:'oppo'
+                    },
+                ],
+                contents:[
+                    {
+                        con:'小米内容'
+                    },
+                    {
+                        con:'华为内容'
+                    },
+                    {
+                        con:'诺基亚内容'
+                    },
+                    {
+                        con:'oppo内容'
+                    },
+                ]
+            },
+            methods: {
+                switchTab(x){
+                    this.curId=x;
+                    this.content=this.contents[this.curId].con;
+                }
+            },
+        })
+    </script>
+</body>
+</html>

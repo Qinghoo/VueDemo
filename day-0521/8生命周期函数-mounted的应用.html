@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p ref="myP" title="haha">ok</p>
+        <button @click="demo">按钮</button>
+        {{txt}}
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                txt:''
+            },
+            methods: {
+                demo(){
+                    this.$refs.myP.innerHTML='haha';
+                }
+            },
+            mounted() {
+                this.txt=this.$refs.myP.innerHTML;
+            }
+        })
+        console.log(vm.$el===document.querySelector("#app"));
+        confirm.log(vm.$refs.myP.innerHTML);//ok
+    </script>
+</body>
+</html>

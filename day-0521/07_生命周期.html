@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <keep-alive>
+            <son1 v-if="bool"></son1>
+        </keep-alive>
+        <button @click="bool=!bool">删除/创建组件</button>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        var son1={
+            data() {
+                return {
+                    str:'good'
+                }
+            },
+            methods: {
+                run(){
+                    this.str='happy'
+                }
+            },
+            template:'<div><button @click="run">更改子组件</button>更改子组件{{str}}</div> ',
+            beforeCreate() {
+                console.log('组件创建之前'+document.getElementById('app').innerHTML);
+                
+            },
+            created() {
+                console.log('组件创建之后'+document.getElementById('app').innerHTML);
+                
+            },
+            beforeMount() {
+                console.log('DOM加载之前'+document.getElementById('app').innerHTML);
+            },
+            mounted() {
+                console.log('DOM加载之后'+document.getElementById('app').innerHTML);
+            },
+            beforeUpdate() {
+                console.log('组件更新之前'+document.getElementById('app').innerHTML);
+            },
+            updated() {
+                console.log('组件更新之后'+document.getElementById('app').innerHTML);
+            },
+            beforeDestroy() {
+                console.log('组件销毁之前'+document.getElementById('app').innerHTML);
+            },
+            destroyed() {
+                console.log('组件销毁之后'+document.getElementById('app').innerHTML);
+            },
+            deactivated() {
+                console.log('组件停用'+document.getElementById('app').innerHTML);
+            },
+            activated() {
+                console.log('组件启用'+document.getElementById('app').innerHTML);
+            }
+        }
+        new Vue({
+            el:'#app',
+            data:{
+                bool:true
+            },
+            components:{
+                son1
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>子向父传值</title>
+</head>
+<body>
+    <div id="app">
+        <son @end="play"></son>
+        {{msg}}
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        var son={
+            data() {
+                return {
+                    str:'happy'
+                }
+            },
+            methods: {
+            run(){
+                this.$emit('end',this.str);
+            }    
+            },
+            template:'<div @click="run">我是子组件{{str}}</div>'
+
+        }
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'父的This is test！'
+            },
+            methods:{
+                play(x){
+                    this.msg+=x;
+                }
+            },
+            //挂子
+            components:{
+                son
+            }
+        })
+    </script>
+</body>
+</html>
