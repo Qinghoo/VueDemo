@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <ul class="box">
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+    </ul>
+    <script>
+        //1.var 重复定义; let,const 不能重复定义
+        let user='alice';
+        console.log(user);
+        //2.var 没有限制修改；const 不能重复修改(常量)
+        const a=18;
+        console.log(a);
+        //3.var 没有块级作用域,let,const块级作用域
+        if (true) {
+            let b='good';
+        }
+        //consle.log(b);
+        let lis= document.querySelectorAll('.box li');
+
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].onclick=function() {
+                alert(i);
+            }
+        }
+
+        //模板字符串
+        let c='haha';
+        let str='<div>\
+            <p>'+
+            c+
+            '</p>\
+            </div>';
+        console.log(str);
+
+        let str2=`<div>
+                  <p>${c}
+                  </p>
+                  </div>`;
+        console.log(str2);
+    </script>
+</body>
+</html>

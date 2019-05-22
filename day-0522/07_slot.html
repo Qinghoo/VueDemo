@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            display: flex;
+        }
+        .s-left{
+            flex: 2;
+            background: #0ff;
+        }
+        .s-center{
+            flex:2;
+        }
+        .s-right{
+            float:1;
+            background: #ff0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <son>
+            <p slot="left">左版块</p>
+            <p slot="right">右版块</p>
+        </son>
+    </div>
+    <script>
+        var son={
+            template:`
+                <div class="wrap">
+                    <div class="s-left" v-if="$slots.left">
+                        <slot name="left">1</slot>
+                    </div>
+                    <div class="s-center" v-if="$slots.center">
+                        <slot name="center"></slot>
+                    </div>
+                    <div class="s-right" v-if="$slots.right">
+                        <slot name="right">3</slot>
+                    </div>
+                 </div>`
+        }
+        var vm=new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods: {
+
+            },
+            comments:{
+                son
+            }
+        })
+    </script>
+</body>
+</html>

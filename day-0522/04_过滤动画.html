@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .fade-enter,.fade-leave-to{
+            opacity: 0;
+            transform: translatex(20px);
+
+        }
+        .fade-enter-to,.fade-leave{
+            opacity: 1;
+            transform: translatex(0px);
+        }
+        .fade-enter-active,.fade-enter-active{
+            transform: all 2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+<button @click="bool=!bool">
+    显示或隐藏
+</button>
+<transition name="fade">
+    <div class="box" v-if="bool">盒子</div>
+</transition>
+
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                bool:true
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <script>
+        //参数的收集和扩展
+        function demo(a,b,c) {
+            console.log(a,b,c);
+        }
+        let arr=[3,8,11];
+        //扩展
+        demo(...arr);
+
+        function demo2(...a) {//收集：数组
+            console.log(...a); //扩展：单个参数
+        }
+        let n=3,m=5,k=8;
+        demo2(n,m,k);
+
+        function demo3(...a) {//扩展：单个参数
+            console.log(...a); //收集数组
+        }
+        demo3(arr);
+        console.log('====================');
+        //解构复制
+        let array=['alice','tom','jerry'];
+        //consolel.log(arr[0]);
+        //a. 两边解构必须一致
+        // b. 声明和赋值必须在一行
+        let [x,y,z]=array;
+        console.log(x,y,z);
+
+        let obj={user:'tom',age:18};
+        let {user,age}=obj;
+        console.log(user,age);
+    </script>
+</body>
+</html>

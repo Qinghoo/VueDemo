@@ -7,7 +7,7 @@
  a.  Vue.component('组件名称',{
        data(){
            return {
-               str:'haha'
+               str:'haha'                                                                                                                                                                                   
            }
        },
        template:'组件内容'

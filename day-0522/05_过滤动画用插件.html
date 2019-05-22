@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="animate.css">
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: #FF0;
+        }
+    </style>
+</head>
+<body>
+        <div id="app">
+                <button @click="bool=!bool">
+                    显示或隐藏
+                </button>
+                <transition enter-active-class="animated bounceInDown" leave-active-class="animated rotateIn">
+                    <div class="box" v-if="bool">盒子</div>
+                </transition>
+                
+        </div>
+        <script src="vue.min.js"></script>
+        <script>
+            new Vue({
+                el:'#app',
+                data:{
+                    bool:true
+                }
+            })
+        </script>
+</body>
+</html>

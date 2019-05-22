@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div class="box">helloworld</div>
+    <script>
+        //匿名函数
+        // let setNum=function(a,b) {
+        //     return a+b;
+        // }
+        // console.log(setNum(7,9));
+
+        //箭头函数
+        let setNum=(a,b) =>{
+            return a+b;
+        }
+        console.log(setNum(7,9));
+
+
+        // a. 如果参数只有一个  可以省略()
+        // b. 如果只有一条return 结果可以省略{} return
+        // let setC=(a)=>{
+        //     return a*2;
+        // }
+        let setC=a=>a*2;
+        console.log(setC(7));
+
+        // c.不改变 this指代
+        // 事件的函数会改变指代
+
+        let box=document.querySelector('.box');
+        //box.onclick=function(){
+        //    console.log(this); //指代box元素
+        //}
+
+        box.onclick=()=>{
+            console.log(this); //指代默认window对象(结论： 箭头函数不改变 this指代)
+        }
+    </script>
+</body>
+</html>

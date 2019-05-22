@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>路由嵌套</title>
+
+</head>
+<body>
+    <div id="app">
+        <router-link to="/home">Go to Home</router-link>
+        <router-link to="/user">Go to User</router-link>
+        <router-view></router-view>
+    </div>
+    <script src="vue.min.js"></script>
+    <script src="vue-router.js"></script>
+    <script>
+        var Home={
+            template:'<span>我是主页</>'
+        };
+        var username={
+            template:'<span>我是{{$route.params}}</span>'
+        };
+        var News={
+            template:`<div>
+                <h3>我是用户</h3>
+                    <ul><li>  <router-link to="/user/sunseekers">用户信息</router-link></li></ul>
+                    <router-view></router-view>
+                    </div
+                `
+        };
+        var routes=[
+           {
+               path:'/home',
+               component:Home
+           },
+           {
+               path:'/user',
+               component:News,
+               children:[
+                   {
+                       path:':username',component:username
+                   }
+               ]
+           },
+           {
+               path:'/*',
+               redirect:'/home'
+           }
+        ];
+        var router=new VueRouter({routes})
+        new Vue({
+            el:'#app',
+            router
+        })
+    </script>
+</body>
+</html>
