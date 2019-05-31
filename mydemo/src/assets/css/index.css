@@ -1,0 +1,45 @@
+@import url('reset.css');
+@import url('icons.css');
+
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.container-view{
+    height: 100%;
+    padding-bottom: 50px;
+}
+.container-footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+    background: #fff;
+}
+.tabbar{
+    display: flex;
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+.tabbar .item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tabbar .item span{
+    padding-top: 6px;
+}
+.tabbar .iconfont{
+    font-size: 20px;
+}
+.router-link-active{
+    color: #f60;
+}
